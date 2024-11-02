@@ -1,23 +1,27 @@
 :root {
   /* FONTS */
-  font-family: "Rubik", sans-serif;
-  font-optical-sizing: auto;
+  --rubik: "Rubik", sans-serif;
 
   --regular: 400;
   --medium: 500;
   --bold: 700;
 
-  --text-base: 18px;
-  --text-sm: 14px;
-  --text-xs: 10px;
+  --text-heading: 1.625rem;
+  --text-base: 1.125rem;
+  --text-sm: 0.875rem;
+  --text-xs: 0.625rem;
 
   /* COLOURS */
   --veryDarkGray: hsl(0, 0%, 17%);
   --darkGray: hsl(0, 0%, 59%);
+
 }
  
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  color: var(--veryDarkGray);
+  font-family: var(--rubik);
+  font-optical-sizing: auto;
 }
