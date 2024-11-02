@@ -5,7 +5,8 @@ header {
     background-size: contain;
     height: 18.75rem;
     width: 100%;
-    padding: 1rem;
+    /* padding: 1rem; */
+    padding: 1rem 0;
 }
 
 header h1 {
@@ -24,6 +25,7 @@ fieldset {
     height: fit-content;
     border: none;
     margin: 1.5rem auto;
+    width: 90%;
 }
 
 fieldset > input {
@@ -58,13 +60,49 @@ fieldset > div:hover::before {
     opacity: 15%;
 }
 
+main {
+    border: 1px solid red;
+    height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+main > div {
+    height: 280px;
+    width: 90%;
+    background: white;
+    z-index: 1000;
+    border: 1px solid black;
+    border-radius: 14px;
+    position: absolute;
+    top: 0;
+    margin-top: -140px;
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0.5);
+}
+
 @media screen and (min-width: 580px) {
     header {
         background-image: url('./assets/pattern-bg-desktop.png');
         height: 17.5rem;
+        background-attachment:fixed;
+        background-size: cover;
     }
     
     fieldset {
-        width: 40%;
+        width: 50%;
+    }
+
+    main > div {
+        height: 180px;
+        width: 80%;
+        margin-top: -90px;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    header {
+        background-size: contain;
     }
 }
