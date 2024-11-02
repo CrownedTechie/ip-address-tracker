@@ -1,22 +1,21 @@
-header {
-    background-image: url('./assets/pattern-bg-mobile.png');
+.header {
+    background-image: url('../../assets/pattern-bg-mobile.png');
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: contain;
     height: 18.75rem;
     width: 100%;
-    /* padding: 1rem; */
     padding: 1rem 0;
 }
 
-header h1 {
+.headerText {
     color: white;
     font-weight: var(--regular);
     font-size: var(--text-heading);
     text-align: center;
 }
 
-fieldset {
+.headerSearchBox {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -28,7 +27,7 @@ fieldset {
     width: 90%;
 }
 
-fieldset > input {
+.headerSearchBox > input {
     font-size: var(--text-base);
     border-radius: 14px 0 0 14px;
     width: 100%;
@@ -37,7 +36,7 @@ fieldset > input {
     border: none;
 }
 
-fieldset > div {
+.headerSearchBox > div {
     padding: 1.2rem;
     border-radius: 0 14px 14px 0;
     cursor: pointer;
@@ -47,7 +46,7 @@ fieldset > div {
     align-items: center;
 }
 
-fieldset > div:hover::before {
+.headerSearchBox > div:hover::before {
     content: '';
     position: absolute;
     background: var(--darkGray);
@@ -60,54 +59,21 @@ fieldset > div:hover::before {
     opacity: 15%;
 }
 
-main {
-    border: 1px solid red;
-    height: 100vh;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-main > div {
-    height: 280px;
-    width: 90%;
-    background: white;
-    z-index: 1000;
-    border: 1px solid black;
-    border-radius: 14px;
-    position: absolute;
-    top: 0;
-    margin-top: -140px;
-    box-shadow: 0 0 0 rgba(0, 0, 0, 0.5);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-}
-
 @media screen and (min-width: 580px) {
-    header {
-        background-image: url('./assets/pattern-bg-desktop.png');
+    .header {
+        background-image: url('../../assets/pattern-bg-desktop.png');
         height: 17.5rem;
         background-attachment:fixed;
         background-size: cover;
     }
     
-    fieldset {
+    .headerSearchBox {
         width: 50%;
-    }
-
-    main > div {
-        height: 180px;
-        width: 80%;
-        margin-top: -90px;
     }
 }
 
 @media screen and (min-width: 1440px) {
-    header {
+    .header {
         background-size: contain;
     }
 }

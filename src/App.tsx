@@ -1,24 +1,31 @@
 import "./App.css";
-import arrowIcon from "./assets/icon-arrow.svg"
+import { Header } from "./components";
 
 function App() {
 
   return (
     <>
-      <header>
-        <h1>IP Address Tracker</h1>
-
-        <fieldset>
-          <input type="text" name="" id="" />
-
-          <div>
-            <img src={arrowIcon} alt="arrow icon" />
-          </div>
-        </fieldset>
-      </header>
+      <Header />
 
       <main>
-        <div></div>
+        <div>
+          <div>
+            <h6>IP ADDRESS</h6>
+            <p>192.212.174.101</p>
+          </div>
+          <div>
+            <h6>LOCATION</h6>
+            <p>Brooklyn, NYC 10001</p>
+          </div>
+          <div>
+            <h6>TIMEZONE</h6>
+            <p>UTC-05:00</p>
+          </div>
+          <div>
+            <h6>ISP</h6>
+            <p>SpaceX Starlink</p>
+          </div>
+        </div>
       </main>
     </>
   )
