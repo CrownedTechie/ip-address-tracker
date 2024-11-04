@@ -1,0 +1,61 @@
+.main {
+    border: 1px solid red;
+    height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main > div {
+    height: 17.5rem;
+    width: 80%;
+    background: white;
+    z-index: 1000;
+    border: 1px solid black;
+    border-radius: .875rem;
+    position: absolute;
+    top: 0;
+    margin-top: -8.75rem;
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.div > div {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+    padding: 2rem;
+}
+
+.div > div > hr {
+    display: none;
+}
+
+@media screen and (min-width: 580px) {
+    .main > div {
+        height: 11.25rem;
+        width: 80%;
+        margin-top: -5.625rem;
+    }
+
+    .div > div {
+        flex-direction: row;
+        gap: 1.5rem;
+        text-align: left;
+    }
+
+    .div > div > hr {
+        display: flex;
+    }
+}
+
+@media screen and (min-width: 1280px) {
+    .div > div {
+        gap: 2rem;
+    }
+}

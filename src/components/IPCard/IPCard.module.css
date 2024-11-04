@@ -1,0 +1,33 @@
+
+.h6 {
+    color: var(--darkGray);
+    margin-bottom: .5rem;
+    font-weight: var(--bold);
+}
+
+.p {
+    font-size: var(--text-base);
+    font-weight: var(--medium);
+}
+
+@media screen and (min-width: 580px) {
+    .article {
+        width: 25%;
+    }
+
+    .h6 {
+        font-size: var(--text-sm);
+        font-weight: var(--medium);
+        margin-bottom: 1rem;
+    }
+
+    .p {
+        font-size: var(--text-base);
+    }
+}
+
+@media screen and (min-width: 1280px) {
+    .p {
+        font-size: 1.8rem;
+    }
+}
