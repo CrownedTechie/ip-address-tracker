@@ -36,7 +36,7 @@ const fetchIPDetails = async <T>( zodSchema: z.ZodType<T>, ipAddress?: string ) 
             throw new Error("Failed to fetch Data")
         }
         const data = response.data;
-        console.log(data);
+        // console.log(data);
         return zodSchema.parse(data);   
     } catch (error) {
         //throw new Error(error); //! why am i having an issue here? I still have to type cast the error too?

@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { IPCard } from "../index";
+import { IPCard, Map } from "../index";
 import styles from "./IPOverviewBox.module.css";
 import { useEffect, useState } from "react";
 import fetchIPDetails from "../../api/axios";
@@ -41,6 +41,7 @@ const IPOverviewBox = () => {
   }, []);
 
   return (
+    <>
       <div className={styles.main}>
         <div className={styles.div}>
           {fetchedDetails && 
@@ -67,6 +68,12 @@ const IPOverviewBox = () => {
             </div> */}
         </div>
       </div>
+
+      {/* //TODO: redo this  */}
+      {fetchedDetails && <Map lat={fetchedDetails?.location.lat} lng={fetchedDetails?.location.lng}/> }
+    </>
+      
+
   )
 }
 
