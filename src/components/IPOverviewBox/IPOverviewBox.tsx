@@ -6,6 +6,13 @@ import axios from "axios";
 
 
 // export const API_KEY = "apiKey=at_OnpuI5H6sjJjQyTFJafQ0hAown9Wt";
+// https://geo.ipify.org/api/v2/country,city?apiKey=at_OnpuI5H6sjJjQyTFJafQ0hAown9Wt&ipAddress=8.8.8.8
+
+//so the ipaddress param is optional. when someone searches for an ip address, it should be available.
+//but I want the users ip address to be displayed when the user opens the app. so without the ip address params, it defaults to the user's public IP address. 
+//do i create two endpoints for it? 
+
+//TODO3: define the zod schema that is needed in the get function
 
 
 const IPOverviewBox = () => {
