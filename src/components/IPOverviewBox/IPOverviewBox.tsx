@@ -1,4 +1,3 @@
-// import { useState } from "react";
 import { z } from "zod";
 import { IPCard } from "../index";
 import styles from "./IPOverviewBox.module.css";
@@ -24,10 +23,12 @@ const IPDetailsSchema = z.object({
   as: z.object({ asn: z.number() }),
   isp: z.string()
 });
- 
+
+type IPDetails = z.infer<typeof IPDetailsSchema>;
+
 
 const IPOverviewBox = () => {
-  const [fetchedDetails, setFetchedDetails] = useState<object | undefined>();
+  const [fetchedDetails, setFetchedDetails] = useState<IPDetails | undefined>();
 
   //Todo: The data I fetch should be in a useEffect
   useEffect(()=>{
@@ -54,7 +55,7 @@ const IPOverviewBox = () => {
             </div>
           }
 
-          {/* TODO: do the empty state own late */}
+          {/* TODO: do the empty state own later */}
             {/* <div>
               <IPCard title="IP ADDRESS" text="192.212.174.101" />
               <hr />
