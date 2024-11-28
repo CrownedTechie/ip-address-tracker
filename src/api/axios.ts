@@ -1,6 +1,10 @@
 import axios from "axios";
 import { z } from "zod";
 
+
+// export const API_KEY = "apiKey=at_OnpuI5H6sjJjQyTFJafQ0hAown9Wt";
+// https://geo.ipify.org/api/v2/country,city?apiKey=at_OnpuI5H6sjJjQyTFJafQ0hAown9Wt&ipAddress=8.8.8.8
+
 const url = 'https://geo.ipify.org/api/v2';
 const API_KEY = 'at_OnpuI5H6sjJjQyTFJafQ0hAown9Wt';
 
@@ -35,7 +39,8 @@ const fetchIPDetails = async <T>( zodSchema: z.ZodType<T>, ipAddress?: string ) 
         console.log(data);
         return zodSchema.parse(data);   
     } catch (error) {
-        throw new Error(error); //! why am i having an issue here? I still have to type cast the error too?
+        //throw new Error(error); //! why am i having an issue here? I still have to type cast the error too?
+        console.log(error);
     }
 }
  
