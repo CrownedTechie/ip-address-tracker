@@ -25,3 +25,11 @@
   font-family: var(--rubik);
   font-optical-sizing: auto;
 }
+
+#map {
+  /* height: 100vh; */
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
