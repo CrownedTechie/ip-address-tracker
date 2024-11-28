@@ -1,11 +1,9 @@
-/* .main {
-    border: 1px solid red;
-    height: 100vh;
+.main {
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-} */
+}
 
 .main > div {
     height: 17.5rem;

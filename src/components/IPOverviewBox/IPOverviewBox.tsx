@@ -25,7 +25,7 @@ const IPOverviewBox = () => {
 
 
   return (
-      <div id="map" className={styles.main}>
+      <div className={styles.main}>
         <div className={styles.div}>
           <div>
               <IPCard title="IP ADDRESS" text="192.212.174.101" />
