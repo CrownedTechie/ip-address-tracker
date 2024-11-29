@@ -20,6 +20,7 @@ const axiosInstance = axios.create({
 //TODO1: create a get IP address function here first. 
 //TODO2: use zod to validate the response from backend. I want it to be within the get function 
 
+//TODO: convert the fetchIPDetails to a custom hook. Should extend loading, refetch 
 
 
 const fetchIPDetails = async <T>( zodSchema: z.ZodType<T>, ipAddress?: string ) => {

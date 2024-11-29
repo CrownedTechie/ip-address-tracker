@@ -32,7 +32,7 @@ type IPOverviewBoxProps = {
 
 const IPOverviewBox = ({ipAddress}: IPOverviewBoxProps) => {
   const [fetchedDetails, setFetchedDetails] = useState<IPDetails | undefined>();
-
+console.log(ipAddress);
   //Todo: The data I fetch should be in a useEffect
   useEffect(()=>{
     const fetchData = async () => {
@@ -41,7 +41,7 @@ const IPOverviewBox = ({ipAddress}: IPOverviewBoxProps) => {
     }
 
     fetchData();
-  }, []);
+  }, [ipAddress]);
 
   return (
     <>

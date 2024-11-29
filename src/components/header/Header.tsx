@@ -21,7 +21,7 @@ const Header = ({searchValue, handleSearch}:HeaderProps) => {
           onChange={handleSearch}
         />
 
-        //Todo: put an onclick functionality here
+        {/* //Todo: put an onclick functionality here */}
         <div>
           <img src={arrowIcon} alt="arrow icon" />
         </div>

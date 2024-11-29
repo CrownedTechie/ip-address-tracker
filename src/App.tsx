@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Header, IPOverviewBox } from "./components";
-
+import { useDebounceValue } from 'usehooks-ts';
 //I'll have to pass the props needed from here. 
 
 
@@ -8,9 +8,12 @@ import { Header, IPOverviewBox } from "./components";
 function App() {
   //Todo: manage the searchValue state here with useState. Pass the searchvalue to the header and the Ipoverview Box
   const [searchTerm, setSearchTerm] = useState<string>("");
+  const [debouncedSearchTerm, setDebouncedSearchTerm] = useDebounceValue("", 500);
 
   const handleSearchTerm = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchTerm(e.target.value);
+    const {target:{value}} = e
+    setSearchTerm(value);
+    setDebouncedSearchTerm(value);
   };
 
   // console.log(searchTerm);
@@ -18,7 +21,7 @@ function App() {
   return (
     <>
       <Header searchValue={searchTerm} handleSearch={handleSearchTerm}/>
-      <IPOverviewBox ipAddress={searchTerm}/>
+      <IPOverviewBox ipAddress={debouncedSearchTerm}/>
     </>
   )
 }
