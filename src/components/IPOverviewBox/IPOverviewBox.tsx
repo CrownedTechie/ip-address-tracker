@@ -26,14 +26,17 @@ const IPDetailsSchema = z.object({
 
 type IPDetails = z.infer<typeof IPDetailsSchema>;
 
+type IPOverviewBoxProps = {
+  ipAddress: string;
+}
 
-const IPOverviewBox = () => {
+const IPOverviewBox = ({ipAddress}: IPOverviewBoxProps) => {
   const [fetchedDetails, setFetchedDetails] = useState<IPDetails | undefined>();
 
   //Todo: The data I fetch should be in a useEffect
   useEffect(()=>{
     const fetchData = async () => {
-      const data = await fetchIPDetails(IPDetailsSchema);
+      const data = await fetchIPDetails(IPDetailsSchema, ipAddress);
       setFetchedDetails(data);
     }
 

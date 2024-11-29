@@ -1,13 +1,24 @@
-import { Header, IPOverviewBox, Map } from "./components";
+import { useState } from "react";
+import { Header, IPOverviewBox } from "./components";
 
-//I'll have to pass the props needed from here. Then probably use a state management system later to manage the values better
+//I'll have to pass the props needed from here. 
+
+
 
 function App() {
+  //Todo: manage the searchValue state here with useState. Pass the searchvalue to the header and the Ipoverview Box
+  const [searchTerm, setSearchTerm] = useState<string>("");
+
+  const handleSearchTerm = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchTerm(e.target.value);
+  };
+
+  // console.log(searchTerm);
+
   return (
     <>
-      <Header />
-      <IPOverviewBox />
-      {/* <Map />    */}
+      <Header searchValue={searchTerm} handleSearch={handleSearchTerm}/>
+      <IPOverviewBox ipAddress={searchTerm}/>
     </>
   )
 }
