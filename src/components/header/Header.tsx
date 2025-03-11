@@ -15,8 +15,6 @@ const Header = ({searchValue, handleSearch}:HeaderProps) => {
       <fieldset className={headerStyles.headerSearchBox}>
         <input 
           type="text" 
-          name="" 
-          id=""
           value={searchValue}
           onChange={handleSearch}
         />

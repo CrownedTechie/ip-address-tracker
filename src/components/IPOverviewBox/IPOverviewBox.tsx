@@ -1,8 +1,7 @@
 import { z } from "zod";
 import { IPCard, Map } from "../index";
 import styles from "./IPOverviewBox.module.css";
-import { useEffect, useState } from "react";
-import fetchIPDetails from "../../api/axios";
+import useFetch from "../../hooks/useFetch";
 
 //so the ipaddress param is optional. when someone searches for an ip address, it should be available.
 //but I want the users ip address to be displayed when the user opens the app. so without the ip address params, it defaults to the user's public IP address. 
@@ -27,21 +26,19 @@ const IPDetailsSchema = z.object({
 type IPDetails = z.infer<typeof IPDetailsSchema>;
 
 type IPOverviewBoxProps = {
-  ipAddress: string;
+  searchValue: string;
 }
 
-const IPOverviewBox = ({ipAddress}: IPOverviewBoxProps) => {
-  const [fetchedDetails, setFetchedDetails] = useState<IPDetails | undefined>();
-console.log(ipAddress);
-  //Todo: The data I fetch should be in a useEffect
-  useEffect(()=>{
-    const fetchData = async () => {
-      const data = await fetchIPDetails(IPDetailsSchema, ipAddress);
-      setFetchedDetails(data);
-    }
+const IPOverviewBox = ({searchValue}: IPOverviewBoxProps) => {
+  const params = searchValue ? { ipAddress: searchValue} : undefined;
+  const { data, loading, error } = useFetch<IPDetails>({
+    url:'/country,city', 
+    params
+  });
 
-    fetchData();
-  }, [ipAddress]);
+  // Validating my fetched data
+  const validatedData = data ? IPDetailsSchema.safeParse(data) : null;
+  const fetchedDetails = validatedData?.success ? validatedData.data : null;
 
   return (
     <>

@@ -2,13 +2,12 @@ import axios from "axios";
 import { z } from "zod";
 
 
-// export const API_KEY = "apiKey=at_OnpuI5H6sjJjQyTFJafQ0hAown9Wt";
-// https://geo.ipify.org/api/v2/country,city?apiKey=at_OnpuI5H6sjJjQyTFJafQ0hAown9Wt&ipAddress=8.8.8.8
+//TODO: use .env to hide the api_key
 
 const url = 'https://geo.ipify.org/api/v2';
-const API_KEY = 'at_OnpuI5H6sjJjQyTFJafQ0hAown9Wt';
+export const API_KEY = import.meta.env.VITE_API_KEY;
 
-const axiosInstance = axios.create({
+export const axiosInstance = axios.create({
     baseURL: url,
     timeout: 10000, //waits for a response, after 10 secs it aborts the request
     headers: {
@@ -24,6 +23,7 @@ const axiosInstance = axios.create({
 
 
 const fetchIPDetails = async <T>( zodSchema: z.ZodType<T>, ipAddress?: string ) => {
+
     try {
         const params = {
             apiKey: API_KEY,
@@ -36,9 +36,8 @@ const fetchIPDetails = async <T>( zodSchema: z.ZodType<T>, ipAddress?: string ) 
         if(response.status !== 200) {
             throw new Error("Failed to fetch Data")
         }
-        const data = response.data;
-        // console.log(data);
-        return zodSchema.parse(data);   
+        const data= zodSchema.parse(response.data);
+        return data;
     } catch (error) {
         //throw new Error(error); //! why am i having an issue here? I still have to type cast the error too?
         console.log(error);
