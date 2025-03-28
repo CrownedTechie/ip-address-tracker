@@ -3,11 +3,6 @@ import { IPCard, Map } from "../index";
 import styles from "./IPOverviewBox.module.css";
 import useFetch from "../../hooks/useFetch";
 
-//so the ipaddress param is optional. when someone searches for an ip address, it should be available.
-//but I want the users ip address to be displayed when the user opens the app. so without the ip address params, it defaults to the user's public IP address. 
-//do i create two endpoints for it? 
-
-//TODO3: define the zod schema that is needed in the get function
 const IPDetailsSchema = z.object({
   ip: z.string().ip(),
   location: z.object({
@@ -31,7 +26,7 @@ type IPOverviewBoxProps = {
 
 const IPOverviewBox = ({searchValue}: IPOverviewBoxProps) => {
   const params = searchValue ? { ipAddress: searchValue} : undefined;
-  const { data, loading, error } = useFetch<IPDetails>({
+  const { data } = useFetch<IPDetails>({
     url:'/country,city', 
     params
   });
@@ -69,7 +64,6 @@ const IPOverviewBox = ({searchValue}: IPOverviewBoxProps) => {
         </div>
       </div>
 
-      {/* //TODO: redo this  */}
       {fetchedDetails && <Map lat={fetchedDetails?.location.lat} lng={fetchedDetails?.location.lng}/> }
     </>
       
