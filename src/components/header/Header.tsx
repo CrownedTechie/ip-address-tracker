@@ -1,7 +1,6 @@
 import arrowIcon from "../../assets/icon-arrow.svg";
 import headerStyles from "./header.module.css";
 
-
 type HeaderProps = {
   searchValue: string;
   handleSearch: (e: React.ChangeEvent<HTMLInputElement>) => void;

@@ -10,27 +10,3 @@ export const axiosInstance = axios.create({
       'Content-Type': 'application/json',
     },
 });
-
-// const fetchIPDetails = async <T>( zodSchema: z.ZodType<T>, ipAddress?: string ) => {
-
-//     try {
-//         const params = {
-//             apiKey: API_KEY,
-//             ...(ipAddress && { ipAddress })
-//         }
-    
-//         const response = await axiosInstance.get('/country,city', { params });
-    
-//         //TODO: Work on handling different error types later 
-//         if(response.status !== 200) {
-//             throw new Error("Failed to fetch Data")
-//         }
-//         const data= zodSchema.parse(response.data);
-//         return data;
-//     } catch (error) {
-//         //throw new Error(error); //! why am i having an issue here? I still have to type cast the error too?
-//         console.log(error);
-//     }
-// }
- 
-// export default fetchIPDetails;

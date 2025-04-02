@@ -50,24 +50,11 @@ const IPOverviewBox = ({searchValue}: IPOverviewBoxProps) => {
               <IPCard title="ISP" text={fetchedDetails.isp} />
             </div>
           }
-
-          {/* TODO: do the empty state own later */}
-            {/* <div>
-              <IPCard title="IP ADDRESS" text="192.212.174.101" />
-              <hr />
-              <IPCard title="LOCATION" text="Brooklyn, NYC 10001" />
-              <hr />
-              <IPCard title="TIMEZONE" text="UTC-05:00" />
-              <hr />
-              <IPCard title="ISP" text="SpaceX Starlink" />
-            </div> */}
         </div>
       </div>
 
       {fetchedDetails && <Map lat={fetchedDetails?.location.lat} lng={fetchedDetails?.location.lng}/> }
     </>
-      
-
   )
 }
 
