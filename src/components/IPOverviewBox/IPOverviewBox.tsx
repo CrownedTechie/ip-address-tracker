@@ -41,13 +41,25 @@ const IPOverviewBox = ({searchValue}: IPOverviewBoxProps) => {
         <div className={styles.div}>
           {fetchedDetails && 
             <div>
-              <IPCard title="IP ADDRESS" text={fetchedDetails.ip} />
+              <IPCard 
+                title="IP ADDRESS" 
+                text={fetchedDetails.ip} 
+              />
               <hr />
-              <IPCard title="LOCATION" text={`${fetchedDetails.location.city}, ${fetchedDetails.location.region} ${fetchedDetails.as.asn}`} />
+              <IPCard 
+                title="LOCATION" 
+                text={`${fetchedDetails.location.city}, ${fetchedDetails.location.region} ${fetchedDetails.as.asn}`} 
+              />
               <hr />
-              <IPCard title="TIMEZONE" text={`UTC${fetchedDetails.location.timezone}`} />
+              <IPCard 
+                title="TIMEZONE" 
+                text={`UTC${fetchedDetails.location.timezone}`}  
+              />
               <hr />
-              <IPCard title="ISP" text={fetchedDetails.isp} />
+              <IPCard 
+                title="ISP" 
+                text={fetchedDetails.isp ? fetchedDetails.isp : "---"} 
+              />
             </div>
           }
         </div>
