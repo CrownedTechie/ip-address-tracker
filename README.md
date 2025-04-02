@@ -1,50 +1,88 @@
-# React + TypeScript + Vite
+# IP address tracker
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is my solution to the [IP address tracker challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/ip-address-tracker-I8-0yYAH0). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
 
-Currently, two official plugins are available:
+## Table of contents
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- [Overview](#overview)
+  - [The challenge](#the-challenge)
+  - [Screenshot](#screenshot)
+  - [Links](#links)
+- [My process](#my-process)
+  - [Built with](#built-with)
+  - [Installation](#installation)
+    - [Prerequisites](#prerequisites)
+    - [Steps](#steps)
 
-## Expanding the ESLint configuration
+## Overview
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+### The challenge
 
-- Configure the top-level `parserOptions` property like this:
+Key features of the app:
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+- The layout adjusts to provide an optimal experience across different screen sizes
+- Interactive elements on the page have hover states for a smooth user experience
+- The user's IP address is displayed on the map when the page loads
+- Users can search for any IP addresses or domains and see the key information and location
+
+### Screenshot
+
+![](./public/desktop-view.png)
+
+### Links
+
+- Live Site URL: [IP address tracker](https://ip-address-tracker-xyz.vercel.app/)
+
+## My process
+
+I created a custom `useFetch` hook that simplifies API requests using Axios, managing load states, handling errors, and aborting the request when necessary.
+
+### Built with
+
+- Modular CSS - For styling
+- [Axios](https://axios-http.com/) - For data fetching
+- [React Leaflet](https://react-leaflet.js.org/) - For the map
+- [React](https://reactjs.org/) - JS library
+- [Typescript](https://www.typescriptlang.org/docs/handbook/react.html)
+- [Zod](https://zod.dev/) - For request validation
+
+### Installation
+
+#### Prerequisites
+
+- Node.js (v16 or later)
+- npm
+- [IP Geolocation API by IPify](https://geo.ipify.org/) account
+
+⚠️ **IMPORTANT** ⚠️: To use the IP Geolocation API by IPify, you'll need to sign up for a free account. You won't need to add any cards details to do this and it's a very quick process. This will generate an API Key for you. Usually, you would be able to restrict your API Key to a specific URL (your own domain). This makes sure that other people can't use your API Key on their own websites. IPify doesn't have this feature, but because you aren't adding your card details, this isn't an issue. **So be sure to only sign up for the free account and DO NOT enter any card details**.
+
+#### Steps
+1. Clone the repository
+```sh
+  git clone https://github.com/CrownedTechie/ip-address-tracker.git
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+2. Install Dependencies
+```sh
+  npm install 
 ```
+
+3. Setup your Environment Variables: 
+Create a `.env` file and add:
+```#.env
+  VITE_API_KEY=your-IPify-API-key
+```
+
+4. Run the Development Server
+```sh
+  npm run dev
+```
+
+5. Build for Production
+```sh
+  npm run build
+```
+
+***
+Made with ❤️ and ☕ by Crownedtechie 
+Gmail - [nenchi00@gmail.com](mailto:nenchi00@gmail.com)
